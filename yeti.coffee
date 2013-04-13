@@ -5,7 +5,7 @@ tinymce.create 'tinymce.plugins.yeti',
     ed.addButton 'yeti', 
       title : 'Yeti YouTube Search'
       cmd : 'yeti'
-      image: 'http://s.ytimg.com/yt/img/creators_corner/YouTube/youtube_24x24.png'
+      image: window.yeti_icon
     ed.addShortcut 'alt+shift+y', ed.getLang('yeti'), 'yeti'
   getInfo: ->
     longname: 'WordPress Yeti YouTube Search'

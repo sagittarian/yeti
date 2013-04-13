@@ -3,14 +3,14 @@
 Plugin Name: Yeti YouTube Search
 Plugin URI: https://github.com/sagittarian/yeti
 Description: Add a YouTube search button to the editor.
-Version: 0.1
+Version: 0.1.1
 Author: Adam Mesha
 Author URI: http://www.mesha.org
 Author Email: adam@mesha.org
 License: GPL2+
 */
 
-add_action('init', 'yeti_addbutton');
+add_action('admin_init', 'yeti_addbutton');
 function yeti_addbutton() {
     if ((!current_user_can('edit_posts') && !current_user_can('edit_pages')) || 
             !get_user_option('rich_editing')) {
@@ -24,6 +24,15 @@ function yeti_addbutton() {
     wp_enqueue_script('jquery');
     wp_enqueue_script('jquery-ui-dialog');
     wp_enqueue_style('yeti', plugins_url('yeti.css', __FILE__));
+}
+
+add_action('admin_enqueue_scripts', 'yeti_add_icon_url');
+function yeti_add_icon_url() {
+    ?>
+    <script type="text/javascript">
+    window.yeti_icon = "<?php echo plugins_url('youtube.png', __FILE__); ?>"; 
+    </script>
+    <?php
 }
 
 function yeti_add_tinymce_plugin($plugin_array) {

@@ -2,6 +2,6 @@
 
 rm yeti.zip
 cd ..
-zip yeti yeti/yeti.{css,js,php,sass,coffee} yeti/readme.txt
+zip yeti yeti/yeti.{css,js,php} yeti/readme.txt yeti/youtube.png
 mv yeti.zip yeti
 
